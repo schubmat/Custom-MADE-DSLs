@@ -8,15 +8,16 @@ version=$3
 # ---------- build it ----------
 #-------------------------------
 
-./gradlew distZip
+./gradlew assembleDist
 # cp build to LSP_BUILDS folder
-cp `find . -name "*ide*zip"` $BUILD_DIR
+cp `find . -name "*ide*tar"` $BUILD_DIR
 # 
 cd $BUILD_DIR
 # extract it
-unzip -o *.zip -d $languageName-$version
+tar xvvf *tar
+mv org.xtext.example.mydsl.ide-$version $languageName-_-$version
 # clean up
-rm *.zip
+rm *.tar
 # leave BUILD into tmpLangFolder
 cd -
 #
@@ -33,8 +34,7 @@ BUILD_DIR="LSP_BUILDS"
 ( 
 flock -e 200
 
-	git branch $languageName-$version
-	git checkout $languageName-$version
+	git checkout -b $languageName-_-$version
 	# sync grammar into new branch
 	rsync -av tmpLang-$languageName-$version/org.xtext.example.mydsl/* org.xtext.example.mydsl/
 

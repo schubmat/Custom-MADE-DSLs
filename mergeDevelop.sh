@@ -5,6 +5,7 @@ availableBranches=${availableBranches//"*"/" "}
 
 for currBranch in $availableBranches; do 
 	git checkout $currBranch
+	git pull
 	git merge develop
 	git push
 done
