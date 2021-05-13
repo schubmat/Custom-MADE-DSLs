@@ -3,25 +3,26 @@
  */
 package org.xtext.example.mydsl.formatting2
 
-import org.eclipse.xtext.formatting2.AbstractFormatter2
+import org.eclipse.xtext.formatting2.AbstractFormatter2 
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import org.xtext.example.mydsl.myDsl.Greeting
-import org.xtext.example.mydsl.myDsl.Model
+// import org.xtext.example.mydsl.myDsl.Model
+// import org.xtext.example.mydsl.myDsl.DecisionRecord
 
 class MyDslFormatter extends AbstractFormatter2 {
-
-	def dispatch void format(Model model, extension IFormattableDocument document) {
-		for (Greeting greetings : model.getGreetings()) {
-			greetings.format;
-		}
+	
+	override format(Object obj, IFormattableDocument document) {
+//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+//	}
+//
+//	def dispatch void format(Model model, extension IFormattableDocument document) {
+//		model.prepend[newLines = 2]
+//		for (DecisionRecord record : model.records) {
+//			if (record.consideredAlteratives === null) {
+//				model.regionFor.keyword("Considered").prepend[newLine] 
+//				interior(model.regionFor.keyword("Considered").previousSemanticRegion, model.regionFor.keyword("alternatives"))[indent]
+//			} 
+//		}
 	}
 
-	def dispatch void format(Greeting model, extension IFormattableDocument document) {
-		model.prepend[newLines = 2]
-		if (model.from !== null) {
-			model.regionFor.keyword("from").prepend[newLine]
-			interior(model.regionFor.keyword("from").previousSemanticRegion, model.regionFor.keyword("!"))[indent]
-		}
-	}
 
 }
