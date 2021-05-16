@@ -2,21 +2,6 @@ apply plugin: 'application'
 apply plugin: 'maven'
 
 group = "de.btu.sst.swt.xtextLsp"
-// artifactId 'project1-sample'
-// id = "grammar_MDR_simplified"
-
-
-// publishing {
-//     publications {
-//         maven(MavenPublication) {
-//             // group = "de.btu.sst.swt.xtextLsp"
-//             artifactId 'project1-sample'
-//             // version '1.0.0-SNAPSHOT'
-
-//             from components.java
-//         }
-//     }
-// }
 
 dependencies {
 	compile project(':org.xtext.example.mydsl')
