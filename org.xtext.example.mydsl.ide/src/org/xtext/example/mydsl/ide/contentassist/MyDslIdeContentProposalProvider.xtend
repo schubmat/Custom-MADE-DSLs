@@ -20,7 +20,7 @@ class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 /*
 		// Considered Alternatives
 		if (decisionRecordRule == ruleCall.rule && context.currentModel !== null) {
-			
+*/		
 			acceptor.accept(proposalCreator.createSnippet('''Title: 
 "How do we solve the problem XYZ?"
 
@@ -41,7 +41,7 @@ Number_3
 Because: 
 "HERE COMES YOUR RATIONALE"''', "Complete Template", context), 0)
 		}
-
+/*
 		// Considered Alternatives
 		if (alternativesRule == ruleCall.rule && context.currentModel !== null) {
 //			acceptor.accept(proposalCreator.createSnippet('''Considered alternatives: 
@@ -112,7 +112,7 @@ Number_3: "Write your 3rd alternative here"''', "Provide 3 alternatives", contex
 			}
 		}
 
-		super._createProposals(ruleCall, context, acceptor) */
-	}
+		super._createProposals(ruleCall, context, acceptor) 
+	}*/
 
 }

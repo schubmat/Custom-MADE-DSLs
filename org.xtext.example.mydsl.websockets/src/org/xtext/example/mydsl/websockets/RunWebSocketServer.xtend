@@ -35,8 +35,9 @@ import java.io.File
 			lspLaunchPort = args.get(0);
 		} else {
 			// remove any but the first line and read the port	
-			lspLaunchPort = Files.toString(new File(".lsp_portConfiguration"), Charsets.UTF_8)
-			lspLaunchPort = lspLaunchPort.split("\n").get(0)
+			// lspLaunchPort = Files.toString(new File(".lsp_portConfiguration"), Charsets.UTF_8)
+			// lspLaunchPort = lspLaunchPort.split("\n").get(0)
+			lspLaunchPort = "8080"
 		}
 		
 		var int port = Integer.valueOf(lspLaunchPort)
