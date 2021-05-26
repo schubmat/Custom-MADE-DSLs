@@ -1,24 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="bin/main" path="src">
+	<classpathentry kind="output" path="bin/default"/>
+	<classpathentry output="bin/main" kind="src" path="src">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" output="bin/main" path="src-gen">
+	<classpathentry output="bin/main" kind="src" path="src-gen">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" output="bin/main" path="xtend-gen">
+	<classpathentry output="bin/main" kind="src" path="xtend-gen">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
-	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
-	<classpathentry kind="output" path="bin/default"/>
+	<classpathentry kind="src" path="/org.xtext.example.mydsl"/>
+	<classpathentry kind="src" path="/org.xtext.example.mydsl.websockets"/>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase.ide/2.16.0/35156cfde9c8f65ad67706f6552019ac7f4cba9e/org.eclipse.xtext.xbase.ide-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase.ide/2.16.0/f00574de632605e713d6d9688442710d5afb3d0b/org.eclipse.xtext.xbase.ide-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.ide/2.16.0/db23e2bb73e8d72874c2a00b7ed7c8467092371f/org.eclipse.xtext.ide-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.ide/2.16.0/3d909ef4edeb6aa4a05a4e8ec5d53c068834647d/org.eclipse.xtext.ide-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.6.1/b0d4139adb22b57dc8e713fc0aa7ad396604efc8/slf4j-simple-1.6.1-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.6.1/58e59bfb3e247097b8122243b3bfe0049c8cfae8/slf4j-simple-1.6.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.22/2b9722cdf33bd0b1d1639a98034dde38b156ad34/slf4j-api-1.7.22-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.22/a1c83373863cec7ae8d89dc1c5722d8cb6ec0309/slf4j-api-1.7.22.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase/2.16.0/e23e1ec1ad70c882f2d28e1ed13b51d8cc67309c/org.eclipse.xtext.xbase-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase/2.16.0/762600b063dc27aecea31ec1e7436f955c084f74/org.eclipse.xtext.xbase-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.common.types/2.16.0/5959454cfda8eb43ed9dce6030a5f77041cf48e3/org.eclipse.xtext.common.types-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.common.types/2.16.0/456db771553d97b4ed86f19351cf67e2e8448a39/org.eclipse.xtext.common.types-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext/2.16.0/627028861103a546f4e7ab4f88e79caa5dc997c5/org.eclipse.xtext-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext/2.16.0/bbd53d9d9c9252e6abd9c454f48d9a4a558b74ab/org.eclipse.xtext-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.java-websocket/Java-WebSocket/1.3.8/9ab89820379cdee996508fd1ee62cb99ed65d3f2/Java-WebSocket-1.3.8-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.java-websocket/Java-WebSocket/1.3.8/5ed9421c83110a74f6c805cdef3060faa44f5b68/Java-WebSocket-1.3.8.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore.change/2.11.0/73516dc035e73915446b1bd9fd404ceb83456818/org.eclipse.emf.ecore.change-2.11.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore.change/2.11.0/3e240518c1b7df8a42acb5d54121693128aaa54e/org.eclipse.emf.ecore.change-2.11.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j/0.6.0/4b17e315058475b0aec71574337159110ea073ef/org.eclipse.lsp4j-0.6.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j/0.6.0/286f7cdbfbdd53e18ec13fe75b903ce80f2a6564/org.eclipse.lsp4j-0.6.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.util/2.16.0/77738cfbae4fc65cce16ca89fcd2a0826de0f703/org.eclipse.xtext.util-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.util/2.16.0/feb42d99b600224f1118fab67c549a4b3420da1d/org.eclipse.xtext.util-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j.generator/0.6.0/3702f071a3def081e5b966a1ecfed48d17309e6b/org.eclipse.lsp4j.generator-0.6.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j.generator/0.6.0/e5953faafecc7ee2efdcdea0d59017c851f7338d/org.eclipse.lsp4j.generator-0.6.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtend/org.eclipse.xtend.lib/2.16.0/83a956737c95d179404d9fba8c116dae613a3390/org.eclipse.xtend.lib-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtend/org.eclipse.xtend.lib/2.16.0/38a6aa16e7783fc9ab79f2eeefce54825db15b5e/org.eclipse.xtend.lib-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.16/bf945d1dc995be7fe64923625f842fbb6bf443be/log4j-1.2.16-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.16/7999a63bfccbc7c247a9aea10d83d4272bd492c6/log4j-1.2.16.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.platform/org.eclipse.equinox.common/3.9.0/e3b1895fe6a09d05e38598ef6c4aee76ba3f2f8d/org.eclipse.equinox.common-3.9.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.platform/org.eclipse.equinox.common/3.9.0/a22125896ff8e25ce913371f54898af733953ecb/org.eclipse.equinox.common-3.9.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.platform/org.eclipse.osgi/3.12.100/8951ccd00300630ed9433bb61281452d2c400800/org.eclipse.osgi-3.12.100-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.platform/org.eclipse.osgi/3.12.100/68058aad4e2bd87adbc3a8e6c7484e41bffacd37/org.eclipse.osgi-3.12.100.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.common/2.12.0/af459a19ba693bf5adc846a38636e60360e84963/org.eclipse.emf.common-2.12.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.common/2.12.0/ce79e5cc3c2de3e8d96a6df4dad3bf5c9fa6b7d7/org.eclipse.emf.common-2.12.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore.xmi/2.12.0/daddaf80c0d94360a70b603d4a44d1299683229c/org.eclipse.emf.ecore.xmi-2.12.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore.xmi/2.12.0/ad136ea23fcdaebec17ec6c730dfdf74b2077c37/org.eclipse.emf.ecore.xmi-2.12.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/com.google.inject/guice/3.0/d117c4481f64955cb1862ed38cb568add2f5fe05/guice-3.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/com.google.inject/guice/3.0/9d84f15fe35e2c716a02979fb62f50a29f38aefa/guice-3.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.antlr/antlr-runtime/3.2/fc08e5ebbee6d8c4576b34743aec39989e9bf2c4/antlr-runtime-3.2-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.antlr/antlr-runtime/3.2/31c746001016c6226bd7356c9f87a6a084ce3715/antlr-runtime-3.2.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j.jsonrpc/0.6.0/5b2fa273de31282af890af861d219439a650849d/org.eclipse.lsp4j.jsonrpc-0.6.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j.jsonrpc/0.6.0/c4ee677f6217134dff720e3cfa9a73e894d63948/org.eclipse.lsp4j.jsonrpc-0.6.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore/2.12.0/aa1cd16cf2bf412b6d55ae94e06303ae098d0d63/org.eclipse.emf.ecore-2.12.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore/2.12.0/644751074e8b448526815f9bdeda26770df2e213/org.eclipse.emf.ecore-2.12.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtend/org.eclipse.xtend.lib.macro/2.16.0/ea203dc6c34a45f3fba548ed4d7b77766037f95/org.eclipse.xtend.lib.macro-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtend/org.eclipse.xtend.lib.macro/2.16.0/92c1466fd97281f339a261d37650e3b33eae6fe6/org.eclipse.xtend.lib.macro-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase.lib/2.16.0/9c8eeef6b628ff7ded7824687cb45e9d7a9af1c8/org.eclipse.xtext.xbase.lib-2.16.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase.lib/2.16.0/e19b0344818acb8ea69f9a6cadafda636c752229/org.eclipse.xtext.xbase.lib-2.16.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/a00123f261762a7c5e0ec916a2c7c8298d29c400/javax.inject-1-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/7.0/6a7ca89b189929d4eb4349c6f075fc345b055e0/asm-commons-7.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/7.0/478006d07b7c561ae3a92ddc1829bca81ae0cdd1/asm-commons-7.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/bbb63ca253b483da8ee53a50374593923e3de2e2/gson-2.7-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/21.0/b9ed26b8c23fe7cd3e6b463b34e54e5c6d9536d5/guava-21.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/21.0/3a3d111be1be1b745edfa7d91678a12d7ed38709/guava-21.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/7.0/70608c6f4ee3c2073ccd43f1e4a359783334f86f/asm-analysis-7.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/7.0/4b310d20d6f1c6b7197a75f1b5d69f169bc8ac1f/asm-analysis-7.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/7.0/6064bf57bbce12aebc8ab96f32efe3f1c6cdd5fc/asm-tree-7.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/7.0/29bc62dcb85573af6e62e5b2d735ef65966c4180/asm-tree-7.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/robert/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/7.0/1e0eab03ec196dea229ea637e523b9c016e66b42/asm-7.0-sources.jar" kind="lib" path="/home/robert/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/7.0/d74d4ba0dee443f68fb2dcb7fcdb945a2cd89912/asm-7.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 </classpath>

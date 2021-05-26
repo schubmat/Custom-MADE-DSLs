@@ -17,7 +17,7 @@ class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 
 	override protected _createProposals(RuleCall ruleCall, ContentAssistContext context,
 		IIdeContentProposalAcceptor acceptor) {
-
+/*
 		// Considered Alternatives
 		if (decisionRecordRule == ruleCall.rule && context.currentModel !== null) {
 			
@@ -112,7 +112,7 @@ Number_3: "Write your 3rd alternative here"''', "Provide 3 alternatives", contex
 			}
 		}
 
-		super._createProposals(ruleCall, context, acceptor)
+		super._createProposals(ruleCall, context, acceptor) */
 	}
 
 }

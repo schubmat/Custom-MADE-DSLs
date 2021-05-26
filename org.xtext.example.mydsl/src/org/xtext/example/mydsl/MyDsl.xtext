@@ -3,52 +3,28 @@ grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
 
-Model:
-	records+=DecisionRecord;
-
-DecisionRecord:
-	title=Title
-	userStory=UserStory
-	summary=Summary
-	consideredAlteratives=Alternatives
-	outcome=Outcome;
-
-Title:
-	'Title:' 
-	name=STRING;
-
-UserStory:
-	'User' 'story:' 
-	ticket=STRING;
-
-Summary:
-	'Summary:' 
-	summary=STRING;
-
-Alternatives:
-	'Considered' 'alternatives:'
-	alternatives+=(Alternative)+;
-
-Alternative:
-	name=ID':' value=STRING;
-
-//AlternativeID:
-//	name=ID;
-
-Outcome:
-	'We' 'chose:'
-	selected=ChosenAlternative
-	because=Because rationale=Rationale;
-
-Because:
-	name='Because:'
+Website: 
+	url=URL
+	header=Header
+	feed=Feed
+	articleOfTheDay=[Article]
 ;
 
-ChosenAlternative:
-	selection=[Alternative];
+URL:
+	"URL: " name=STRING
+;
 
-Rationale:
-	name=STRING;
+Header:
+	"Header: " content=STRING
+;
+
+Feed:
+	articles=(Article)+
+;
+
+Article:
+	name=ID ": " content=STRING
+;
 
 	//terminal L_O_NG_STRING returns ecore::EString: //custom terminal SurveyString
 	//	('a'..'z' | 'A'..'Z') ('a'..'z' | 'A'..'Z' | '_' | '?' | '!' | '@' | '#' | '%' | '^' | '&' | '(' | ')' | '0'..'9' | ' ')*;
