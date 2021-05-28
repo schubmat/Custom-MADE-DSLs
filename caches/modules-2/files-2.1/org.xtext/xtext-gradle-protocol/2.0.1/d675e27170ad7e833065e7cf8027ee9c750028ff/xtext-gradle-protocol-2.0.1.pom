@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.xtext</groupId>
+  <artifactId>xtext-gradle-protocol</artifactId>
+  <version>2.0.1</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>21.0</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  <url>https://github.com/xtext/xtext-gradle-plugin-root</url>
+  <scm>
+    <connection>scm:git@github.com:xtext/xtext-gradle-plugin-root.git</connection>
+    <developerConnection>scm:git@github.com:xtext/xtext-gradle-plugin-root.git</developerConnection>
+    <url>https://github.com/xtext/xtext-gradle-plugin-root</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/xtext/xtext-gradle-plugin-root/issues</url>
+  </issueManagement>
+  <name>xtext-gradle-protocol</name>
+  <description>The protocol used to communicate between the Xtext plugin and the actual builder</description>
+  <developers>
+    <developer>
+      <id>xtext</id>
+      <name>The Xtext team</name>
+      <email>xtext.team@gmail.com</email>
+      <roles>
+        <role>owner</role>
+      </roles>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>Eclipse Public License, Version 1.0</name>
+      <url>https://www.eclipse.org/legal/epl-v10.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+</project>

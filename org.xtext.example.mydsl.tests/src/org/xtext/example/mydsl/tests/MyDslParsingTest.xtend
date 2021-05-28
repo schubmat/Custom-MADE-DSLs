@@ -4,6 +4,8 @@
 package org.xtext.example.mydsl.tests
 
 import com.google.inject.Inject
+import java.util.logging.Logger;
+
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -11,6 +13,10 @@ import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.xtext.example.mydsl.myDsl.Model
+import java.util.logging.Level
+import java.io.File
+import java.io.IOException
+import java.io.FileWriter
 
 @RunWith(XtextRunner)
 @InjectWith(MyDslInjectorProvider)
@@ -20,11 +26,54 @@ class MyDslParsingTest{
 	ParseHelper<Model> parseHelper
 
 	@Test 
-	def void loadModel() {
-		val result = parseHelper.parse('''
-			Hello Xtext!
-		''')
-		Assert.assertNotNull(result)
+	def void loadWrongText() {
+		
+		var Model result		
+		try {
+			result = parseHelper.parse('''This should not be here''')	
+			val url = result.website.url.name
+			writeToFile(url)
+		} catch (Exception e) {
+			result = null
+		}
+		
+		Assert.assertNotNull(result.website)
+	}
+	
+	@Test
+	def void loadValidText() {
+		var Model result
+		try {
+			result = parseHelper.parse(
+				'''
+				URL: "news.b-tu.de"
+				Header: "empty"
+				Article1: "Trump is not president anymore."
+				Article2: "Biden is now president"
+				Article1: "Biden is now president"
+				'''
+			)
+			val url = result.website.url.name
+			writeToFile(url)
+		} catch (Exception e) {
+			result = null
+		}		
+		
+		Assert.assertNull(result.website)
+	}
+	
+	def static void writeToFile(String text) {
+	    try {
+	      val myWriter = new FileWriter("/home/robert/SWT-Praktikum/Log.log");
+	      myWriter.write(text);
+	      myWriter.close();
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    }
+	}
+	
+	def static void main(String[] args) {
+		println("Test")
 	}
 
 }

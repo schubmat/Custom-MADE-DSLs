@@ -1,5 +1,11 @@
+apply plugin:'application'
+apply plugin:'eclipse'
+
+
 dependencies {
 	compile project(':org.xtext.example.mydsl')
 	testCompile "org.eclipse.xtext:org.eclipse.xtext.testing:${xtextVersion}"
 	testCompile "junit:junit:4.12"
 }
+
+mainClassName = 'org.xtext.example.mydsl.tests.MyDslParsingTest'
