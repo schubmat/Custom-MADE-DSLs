@@ -7,6 +7,9 @@ import org.eclipse.xtext.validation.Check
 // import org.eclipse.xtext.Alternatives
 import org.xtext.example.mydsl.myDsl.MyDslPackage
 import org.xtext.example.mydsl.myDsl.Feed
+import org.xtext.example.mydsl.myDsl.URL
+import java.net.URI
+import java.net.URISyntaxException
 
 //import org.eclipse.xtext.util.internal.Log
 
@@ -21,28 +24,22 @@ class MyDslValidator extends AbstractMyDslValidator {
 	
 	@Check
 	def checkNumberOfArticles(Feed feed) {
-		
-	}
-	
-/*
-	@Check
-	def checkNumberOfAlternatives(DecisionRecord record) {
-		
-		if (record.consideredAlteratives.alternatives.size < 2) {
-			warning('There should be two alternatives to choose from at least!',
-				MyDslPackage.Literals.DECISION_RECORD__CONSIDERED_ALTERATIVES,
-				INVALID_NAME
-			)
+		if (feed.articles.size < 2) {			
+			warning('There should be at least two articles!', MyDslPackage.Literals.FEED__ARTICLES)			
 		}
 	}
 	
-	@Check
-	def checkTitleStartsWithCaptial(Title title) {
-		if (!Character.isUpperCase(title.name.charAt(0))) {
-			warning('Name should start with a capital', 
-					MyDslPackage.Literals.TITLE__NAME,
-					INVALID_NAME)
+	def checkWellFormedUrl(URL url) {
+
+		try {
+			val uri = new URI(url.name)
+			uri.toURL
+		} catch (Exception e) {
+			warning('The URL is not well-formed!', MyDslPackage.Literals.URL__NAME)
 		}
+		
+		
 	}
- */
+	
 }
+
