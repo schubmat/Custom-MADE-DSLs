@@ -6,6 +6,7 @@ package org.xtext.example.mydsl.validation
 import org.eclipse.xtext.validation.Check
 // import org.eclipse.xtext.Alternatives
 import org.xtext.example.mydsl.myDsl.MyDslPackage
+import org.xtext.example.mydsl.myDsl.Feed
 
 //import org.eclipse.xtext.util.internal.Log
 
@@ -17,6 +18,12 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage
 class MyDslValidator extends AbstractMyDslValidator {
 	
 	public static val INVALID_NAME = 'invalidName'
+	
+	@Check
+	def checkNumberOfArticles(Feed feed) {
+		
+	}
+	
 /*
 	@Check
 	def checkNumberOfAlternatives(DecisionRecord record) {

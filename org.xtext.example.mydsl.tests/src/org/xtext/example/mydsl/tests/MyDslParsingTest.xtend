@@ -25,41 +25,40 @@ class MyDslParsingTest{
 	@Inject
 	ParseHelper<Model> parseHelper
 
+	// Unit Test 1: Unverifiable Input
+
 	@Test 
 	def void loadWrongText() {
-		
-		var Model result		
-		try {
-			result = parseHelper.parse('''This should not be here''')	
-			val url = result.website.url.name
-			writeToFile(url)
+	
+		var Model result 
+		try {			
+			result = parseHelper.parse('''This should not be here!''')
 		} catch (Exception e) {
 			result = null
 		}
-		
-		Assert.assertNotNull(result.website)
-	}
-	
+		try {
+			val headerContent = result.website.url.name
+		} catch (NullPointerException e) {
+			result = null
+		}
+		Assert.assertNull(result)
+	} 
+
+	// Unit Test 2: Verifiable Input
+
 	@Test
 	def void loadValidText() {
-		var Model result
-		try {
-			result = parseHelper.parse(
+		
+		var result = parseHelper.parse(
 				'''
 				URL: "news.b-tu.de"
 				Header: "empty"
 				Article1: "Trump is not president anymore."
 				Article2: "Biden is now president"
-				Article1: "Biden is now president"
+				Article1
 				'''
-			)
-			val url = result.website.url.name
-			writeToFile(url)
-		} catch (Exception e) {
-			result = null
-		}		
-		
-		Assert.assertNull(result.website)
+			)		
+		Assert.assertNotNull(result)
 	}
 	
 	def static void writeToFile(String text) {

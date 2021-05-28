@@ -47,3 +47,11 @@ This will start the server with the help of `org.xtext.example.mydsl.websockets.
 ### Scenario 3 -- client-only with separate server process
 
 1. Run `./gradlew run` or launch RunServer from Eclipse.
+
+## Validation and Verification of a DSL
+The methods of verification and validation are present in Xtext and should receive enough attention.
+
+- [Validation](Validation.md)
+- [Verification](Verification.md)
+
+For the purpose of understanding, an [Example](NewsFeedLanguage.md) is introduced.

@@ -23,7 +23,7 @@ Header:
 ;
 
 Feed:
-	articles=(Article)+
+	(articles+=Article)+
 ;
 
 Article:
