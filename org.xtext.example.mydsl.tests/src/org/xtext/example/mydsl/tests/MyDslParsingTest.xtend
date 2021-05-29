@@ -70,9 +70,5 @@ class MyDslParsingTest{
 	      e.printStackTrace();
 	    }
 	}
-	
-	def static void main(String[] args) {
-		println("Test")
-	}
 
 }

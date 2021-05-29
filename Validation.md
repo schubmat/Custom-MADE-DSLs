@@ -40,8 +40,8 @@ Thinking of the newsfeed language ([NewsFeedLanguage.md](NewsFeedLanguage.md)), 
     @Check
     def checkNumberOfArticles(Feed feed) {
         if (feed.articles.size < 2) {
-            warning('There should be at least two articles!, 
-                MyDslPackage.Literals.FEED__ARTICLES, 'invalidName')
+            warning('There should be at least two articles!', 
+                MyDslPackage.Literals.FEED__ARTICLES)
         }
     }
 
