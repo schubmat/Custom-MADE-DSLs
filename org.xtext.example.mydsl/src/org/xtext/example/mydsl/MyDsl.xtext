@@ -10,10 +10,10 @@ ModelRoot:
 	'Language' 'Name:' name=ID '
 
 Language' 'Types:
-\t' 	elements+=(DRObjects)+ '
+' '	'	elements+=(DRObjects)+ '
 
 Associations:
-\t' 	associationElements+=(Relationship)+;
+' '	' 	associationElements+=(Relationship)+;
 
 DRObjects:
 	Statement | 
@@ -23,22 +23,24 @@ DRObjects:
 ;
 
 Statement:
-	text=STRING;
+	'Statement' 'Type:
+' '	ID:'	name=ID '
+Type-Name:' 	text=STRING;
 	
 Decision_Problem:
 	'Decision' 'Problem' 'Type:
-\tID:'	name=ID '
-Name:' text=STRING;
+' '	ID:'	name=ID '
+Type-Name:' text=STRING;
 
 Decision_Result:
-	'Decision' 'Result' 'Type
-\tID:'	name=ID '
-Name:' result=(Decision_Option);
+	'Decision' 'Result' 'Type:
+' '	ID:'	name=ID '
+Type-Name:' result=(Decision_Option);
 
 Decision_Option:
-	'Decision' 'Option' 'Type
-\tID:'	name=ID '
-Name:' text=STRING;
+	'Decision' 'Option' 'Type:
+' '	ID:'	name=ID '
+Type-Name:' text=STRING;
 
 Relationship:
 	GenericRelationship | 
