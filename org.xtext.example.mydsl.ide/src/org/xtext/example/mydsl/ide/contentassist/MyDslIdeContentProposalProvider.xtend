@@ -25,13 +25,13 @@ class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 DSL Type Definition:
 	DR Object -- Type: Decision-Problem:
 		ID: DP_ISSUE
-		Name: Issue
+		Name: "Issue"
 	DR Object -- Type: Decision-Option:
 		ID: DO_ALT
-		Name: Alternative
+		Name: "Alternative"
 	DR Object -- Type: Decision-Result:
 		ID: DR_SEL_ALT
-		Name: SelectedAlternative
+		Name: "SelectedAlternative"
 
 	Associations:
 ''', "Complete Template", context), 0)
