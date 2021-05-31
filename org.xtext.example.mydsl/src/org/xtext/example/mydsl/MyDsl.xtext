@@ -23,24 +23,28 @@ DRObjects:
 ;
 
 Statement:
-	'Statement' 'Type:
+	'Type' 'Statement:
 ' '	ID:'	name=ID '
 Type-Name:' 	text=STRING;
 	
 Decision_Problem:
-	'Decision' 'Problem' 'Type:
+	'Type' 'Decision-Problem:
 ' '	ID:'	name=ID '
 Type-Name:' text=STRING;
 
 Decision_Result:
-	'Decision' 'Result' 'Type:
-' '	ID:'	name=ID '
-Type-Name:' result=(Decision_Option);
+	'Type' 'Decision-Result:
+' '	ID:'	name=ID;
 
 Decision_Option:
-	'Decision' 'Option' 'Type:
+	'Type' 'Decision-Option:
 ' '	ID:'	name=ID '
 Type-Name:' text=STRING;
+
+OptionSelection:
+	'Optional' 'REF:' | 'Mandatory' 'REF:' Decision_Option->ID
+;
+
 
 Relationship:
 	GenericRelationship | 
