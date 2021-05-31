@@ -10,45 +10,44 @@ ModelRoot:
 	'Language' 'Name:' name=ID '
 
 	Language' 'Types:
-' '	'	elements+=(DRObjects)+ '
+' '	'	elements+=(DRObject)+ '
 
 Associations:
 ' '	' 	associationElements+=(Relationship)+;
 
-DRObjects:
+DRObject:
 	'DR Obejct -- Type:' DRObject_Type '
 ''	Name:' text=STRING'
 ''	ID:'	name=ID;
 	
 DRObject_Type:
-	'Statement' | 
-	'Decision Problem' |
-	'Decision Result' |
-	'Decision Option';
+	Statement | 
+	Decision_Problem |
+	Decision_Result |
+	Decision_Option;
 
-//Statement:
-//	'Type' 'Statement:
-//' '	ID:'	name=ID '
+Statement:
+	'Type' 'Statement:
+' '	ID:'	name=ID;
 //Type-Name:' 	text=STRING;
 //	
-//Decision_Problem:
-//	'	Type' 'Decision-Problem:
-//' '	ID:'	name=ID '
+Decision_Problem:
+	'	Type' 'Decision-Problem:
+' '	ID:'	name=ID;
 //Type-Name:' text=STRING;
 //
-//Decision_Result:
-//	'Type' 'Decision-Result:
-//' '	ID:'	name=ID;
+Decision_Result:
+	'Type' 'Decision-Result:
+' '	ID:'	name=ID;
 //
-//Decision_Option:
-//	'Type' 'Decision-Option:
-//' '	ID:'	name=ID '
+Decision_Option:
+	'Type' 'Decision-Option:
+' '	ID:'	name=ID;
 //Type-Name:' text=STRING;
 
-OptionSelection:
+//OptionSelection:
 //	'Optional' 'REF:' | 'Mandatory' 'REF:' Decision_Option->ID
 //;
-
 
 Relationship:
 	GenericRelationship | 
@@ -60,11 +59,11 @@ Relationship:
 Argumentative_Relationship:
 	source=(Statement)
 	source_cardinality=STRING
-	target=DRObjects
+	target=DRObject
 	target_cardinality=STRING;
 
 Derivative_Relationship:
-	source=(Decision_Problem)
+	source=(DRObject)
 	source_cardinality=STRING
 	target=(Decision_Problem | Decision_Result)
 	target_cardinality=STRING;
@@ -93,10 +92,10 @@ Option_Relationship:
 //	targetRole?=STRING;
 
 GenericRelationship:
-	'Generic Relationship'
-	name?=STRING
-	targetElement=(DRObjects)
-	sourceElement=(DRObjects)
+	'Generic Relationship
+	' name?=STRING
+	targetElement=(DRObject)
+	sourceElement=(DRObject)
 	sourceCardinality=INT
 	targetCardinality=INT
 	sourceRole?=STRING
