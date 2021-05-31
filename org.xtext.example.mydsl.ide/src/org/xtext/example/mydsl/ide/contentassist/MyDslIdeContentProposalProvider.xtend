@@ -17,8 +17,17 @@ class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 
 	override protected _createProposals(RuleCall ruleCall, ContentAssistContext context,
 		IIdeContentProposalAcceptor acceptor) {
+
+		// Considered Alternatives
+		if (m1_ModelAccess == ruleCall.rule && context.currentModel !== null) {
+
+			acceptor.accept(proposalCreator.createSnippet('''Language Name: LANGUAGE_ID
 			
-		// TODO
+			Language Types: 
+			
+			Assocations:
+			"''', "Complete Template", context), 0)
+		}
 
 		super._createProposals(ruleCall, context, acceptor)
 	}
