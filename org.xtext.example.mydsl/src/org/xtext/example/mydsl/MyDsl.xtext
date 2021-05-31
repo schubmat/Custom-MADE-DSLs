@@ -56,24 +56,28 @@ Relationship:
 	Option_Relationship;
 	
 Argumentative_Relationship:
+	"Argumentative Relationship:"
 	source=(Statement)
 	source_cardinality=STRING
 	target=DRObject
 	target_cardinality=STRING;
 
 Derivative_Relationship:
+	"Derivative Relationship:"
 	source=(DRObject)
 	source_cardinality=STRING
 	target=(Decision_Problem | Decision_Result)
 	target_cardinality=STRING;
 
 Consequence_Relationship:
+	"Consequence Relationship:"
 	source=(Decision_Option)
 	source_cardinality=STRING
 	target=(Decision_Problem | Decision_Result)
 	target_cardinality=STRING;
 	
 Option_Relationship:
+	"Option Relationship:"
 	source=(Decision_Problem)
 	source_cardinality=STRING
 	target=(Decision_Option)

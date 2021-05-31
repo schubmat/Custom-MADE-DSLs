@@ -22,18 +22,18 @@ class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 
 			acceptor.accept(proposalCreator.createSnippet('''Language Name: LANGUAGE_ID
 
-DSL Type Definition::
-		DR Object -- Type: Decision-Problem:
-			Name: Issue
-			ID: DP_ISSUE
-		DR Object -- Type: Decision-Option:
-			Name: Alternative
-			ID: DO_ALT
-		DR Object -- Type: Decision-Result:
-			Name: SelectedAlternative
-			ID: DR_SEL_ALT
+DSL Type Definition:
+	DR Object -- Type: Decision-Problem:
+		ID: DP_ISSUE
+		Name: Issue
+	DR Object -- Type: Decision-Option:
+		ID: DO_ALT
+		Name: Alternative
+	DR Object -- Type: Decision-Result:
+		ID: DR_SEL_ALT
+		Name: SelectedAlternative
 
-	Assocations:
+	Associations:
 ''', "Complete Template", context), 0)
 		}
 
