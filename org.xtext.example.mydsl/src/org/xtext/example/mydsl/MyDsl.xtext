@@ -10,10 +10,10 @@ ModelRoot:
 	'Language' 'Name:' name=ID '
 
 Language' 'Types:
-\t' 	elements+=DRObjects '
+\t' 	elements+=(DRObjects)+ '
 
 Associations:
-\t' 	associationElements+=Relationship;
+\t' 	associationElements+=(Relationship)+;
 
 DRObjects:
 	Statement | 
