@@ -21,11 +21,11 @@ class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 		if (modelRootRule == ruleCall.rule && context.currentModel !== null) {
 
 			acceptor.accept(proposalCreator.createSnippet('''Language Name: LANGUAGE_ID
-			
-			Language Types: 
-			
-			Assocations:
-			"''', "Complete Template", context), 0)
+
+	Language Types: 
+
+	Assocations:
+''', "Complete Template", context), 0)
 		}
 
 		super._createProposals(ruleCall, context, acceptor)
