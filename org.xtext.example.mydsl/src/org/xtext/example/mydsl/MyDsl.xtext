@@ -16,7 +16,7 @@ Associations:
 ' '	' 	associationElements+=(Relationship)+;
 
 DRObject:
-	'DR Obejct -- Type:' DRObject_Type '
+	'DR Obejct -- Type: ' DRObject_Type '
 ''	Name:' text=STRING'
 ''	ID:'	name=ID;
 	
@@ -27,21 +27,21 @@ DRObject_Type:
 	Decision_Option;
 
 Statement:
-	'Type' 'Statement:
+	'Statement:
 ' '	ID:'	name=ID;
 //Type-Name:' 	text=STRING;
 //	
 Decision_Problem:
-	'	Type' 'Decision-Problem:
+	'Decision-Problem:
 ' '	ID:'	name=ID;
 //Type-Name:' text=STRING;
 //
 Decision_Result:
-	'Type' 'Decision-Result:
+	'Decision-Result:
 ' '	ID:'	name=ID;
 //
 Decision_Option:
-	'Type' 'Decision-Option:
+	'Decision-Option:
 ' '	ID:'	name=ID;
 //Type-Name:' text=STRING;
 
