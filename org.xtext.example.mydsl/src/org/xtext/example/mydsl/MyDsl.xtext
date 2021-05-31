@@ -7,18 +7,17 @@ M1_Model:
 	models+=ModelRoot;
 	
 ModelRoot:
-	'Language' 'Name:' name=ID '
+	'Language' 'Name:' name=ID 
+	'DSL Type Definition:'
+	elements+=(DRObject)+
 
-	Language' 'Types:
-' '	'	elements+=(DRObject)+ '
-
-Associations:
-' '	' 	associationElements+=(Relationship)+;
+'Associations:'
+	associationElements+=(Relationship)+;
 
 DRObject:
-	'DR Obejct -- Type: ' DRObject_Type '
-''	Name:' text=STRING'
-''	ID:'	name=ID;
+	'DR Object -- Type:' DRObject_Type 
+	'Name:' text=STRING
+	'ID:'	name=ID;
 	
 DRObject_Type:
 	Statement | 
@@ -27,22 +26,22 @@ DRObject_Type:
 	Decision_Option;
 
 Statement:
-	'Statement:
-' '	ID:'	name=ID;
+	'Statement:'
+	'ID:'	name=ID;
 //Type-Name:' 	text=STRING;
 //	
 Decision_Problem:
-	'Decision-Problem:
-' '	ID:'	name=ID;
+	'Decision-Problem:'
+	'ID:'	name=ID;
 //Type-Name:' text=STRING;
 //
 Decision_Result:
-	'Decision-Result:
-' '	ID:'	name=ID;
+	'Decision-Result:'
+	'ID:'	name=ID;
 //
 Decision_Option:
-	'Decision-Option:
-' '	ID:'	name=ID;
+	'Decision-Option:'
+	'ID:'	name=ID;
 //Type-Name:' text=STRING;
 
 //OptionSelection:

@@ -25,13 +25,13 @@ class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 	Language Types:
 		DR Obejct -- Type: Decision-Problem
 			Name: Issue
-			ID: DP
+			ID: DP_ISSUE
 		DR Obejct -- Type: Decision-Option
-			Name: Issue
-			ID: DP
+			Name: Alternative
+			ID: DO_ALT
 		DR Obejct -- Type: Decision-Result
-			Name: Issue
-			ID: DP
+			Name: SelectedAlternative
+			ID: DR_SEL_ALT
 
 	Assocations:
 ''', "Complete Template", context), 0)
