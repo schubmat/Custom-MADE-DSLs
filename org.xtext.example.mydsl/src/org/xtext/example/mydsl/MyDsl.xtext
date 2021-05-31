@@ -9,41 +9,45 @@ M1_Model:
 ModelRoot:
 	'Language' 'Name:' name=ID '
 
-Language' 'Types:
+	Language' 'Types:
 ' '	'	elements+=(DRObjects)+ '
 
 Associations:
 ' '	' 	associationElements+=(Relationship)+;
 
 DRObjects:
-	Statement | 
-	Decision_Problem |
-	Decision_Result |
-	Decision_Option
-;
-
-Statement:
-	'Type' 'Statement:
-' '	ID:'	name=ID '
-Type-Name:' 	text=STRING;
+	'DR Obejct -- Type:' DRObject_Type '
+''	Name:' text=STRING'
+''	ID:'	name=ID;
 	
-Decision_Problem:
-	'Type' 'Decision-Problem:
-' '	ID:'	name=ID '
-Type-Name:' text=STRING;
+DRObject_Type:
+	'Statement' | 
+	'Decision Problem' |
+	'Decision Result' |
+	'Decision Option';
 
-Decision_Result:
-	'Type' 'Decision-Result:
-' '	ID:'	name=ID;
-
-Decision_Option:
-	'Type' 'Decision-Option:
-' '	ID:'	name=ID '
-Type-Name:' text=STRING;
+//Statement:
+//	'Type' 'Statement:
+//' '	ID:'	name=ID '
+//Type-Name:' 	text=STRING;
+//	
+//Decision_Problem:
+//	'	Type' 'Decision-Problem:
+//' '	ID:'	name=ID '
+//Type-Name:' text=STRING;
+//
+//Decision_Result:
+//	'Type' 'Decision-Result:
+//' '	ID:'	name=ID;
+//
+//Decision_Option:
+//	'Type' 'Decision-Option:
+//' '	ID:'	name=ID '
+//Type-Name:' text=STRING;
 
 OptionSelection:
-	'Optional' 'REF:' | 'Mandatory' 'REF:' Decision_Option->ID
-;
+//	'Optional' 'REF:' | 'Mandatory' 'REF:' Decision_Option->ID
+//;
 
 
 Relationship:
