@@ -104,10 +104,10 @@ GenericRelationship:
 	sourceRole?=STRING
 	targetRole?=STRING;
 	
-TargetAttributename: "Target: ";
-SourceAttributename: "Source: ";
-TargetCardinalityAttributename: "Target Cardinality: ";
-SourceCardinalityAttributename: "Source Cardinality: ";
+TargetAttributename: "Target:";
+SourceAttributename: "Source:";
+TargetCardinalityAttributename: "Target Cardinality:";
+SourceCardinalityAttributename: "Source Cardinality:";
 
 
 
