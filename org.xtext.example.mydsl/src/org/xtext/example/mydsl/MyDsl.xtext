@@ -57,31 +57,31 @@ Relationship:
 	
 Argumentative_Relationship:
 	"Argumentative Relationship:"
-	source=(Statement)
-	source_cardinality=STRING
-	target=DRObject
-	target_cardinality=STRING;
+	SourceAttributename source=(Statement)
+	SourceCardinalityAttributename source_cardinality=STRING
+	TargetAttributename target=DRObject
+	TargetCardinalityAttributename target_cardinality=STRING;
 
 Derivative_Relationship:
 	"Derivative Relationship:"
-	source=(DRObject)
-	source_cardinality=STRING
-	target=(Decision_Problem | Decision_Result)
-	target_cardinality=STRING;
+	SourceAttributename source=(DRObject)
+	SourceCardinalityAttributename source_cardinality=STRING
+	TargetAttributename target=(Decision_Problem | Decision_Result)
+	TargetCardinalityAttributename target_cardinality=STRING;
 
 Consequence_Relationship:
 	"Consequence Relationship:"
-	source=(Decision_Option)
-	source_cardinality=STRING
-	target=(Decision_Problem | Decision_Result)
-	target_cardinality=STRING;
+	SourceAttributename source=(Decision_Option)
+	SourceCardinalityAttributename source_cardinality=STRING
+	TargetAttributename target=(Decision_Problem | Decision_Result)
+	TargetCardinalityAttributename target_cardinality=STRING;
 	
 Option_Relationship:
 	"Option Relationship:"
-	source=(Decision_Problem)
-	source_cardinality=STRING
-	target=(Decision_Option)
-	target_cardinality=STRING;
+	SourceAttributename source=(Decision_Problem)
+	SourceCardinalityAttributename source_cardinality=STRING
+	TargetAttributename target=(Decision_Option)
+	TargetCardinalityAttributename target_cardinality=STRING;
 	
 //PredefinedRelationship:
 //	'Predefined Relationship: '
@@ -95,14 +95,21 @@ Option_Relationship:
 //	targetRole?=STRING;
 
 GenericRelationship:
-	'Generic Relationship'
+	'Generic Relationship:'
 	name?=STRING
-	targetElement=(DRObject)
-	sourceElement=(DRObject)
-	sourceCardinality=INT
-	targetCardinality=INT
+	SourceAttributename sourceElement=(DRObject)
+	TargetAttributename targetElement=(DRObject)	
+	SourceCardinalityAttributename sourceCardinality=STRING
+	TargetCardinalityAttributename targetCardinality=STRING
 	sourceRole?=STRING
 	targetRole?=STRING;
+	
+TargetAttributename: "Target: ";
+SourceAttributename: "Source: ";
+TargetCardinalityAttributename: "Target Cardinality: ";
+SourceCardinalityAttributename: "Source Cardinality: ";
+
+
 
 	
 //ModelElements:
