@@ -11,13 +11,13 @@ ModelRoot:
 	'DSL Type Definition:'
 	elements+=(DRObject)+
 
-'Associations:'
+	'Associations:'
 	associationElements+=(Relationship)+;
 
 DRObject:
-	'DR Object -- Type:' DRObject_Type 
-	'Name:' text=STRING
-	'ID:'	name=ID;
+	'DR Object -- Type:' DRObject_Type;
+//	'Name:' text=STRING
+//	'ID:'	name=ID;
 	
 DRObject_Type:
 	Statement | 
@@ -27,23 +27,23 @@ DRObject_Type:
 
 Statement:
 	'Statement:'
-	'ID:'	name=ID;
-//Type-Name:' 	text=STRING;
+	'ID:'	name=ID
+	'Name:' text=STRING;
 //	
 Decision_Problem:
 	'Decision-Problem:'
-	'ID:'	name=ID;
-//Type-Name:' text=STRING;
+	'ID:'	name=ID
+	'Name:' text=STRING;
 //
 Decision_Result:
 	'Decision-Result:'
-	'ID:'	name=ID;
-//
+	'ID:'	name=ID
+	'Name:' text=STRING;
+	
 Decision_Option:
 	'Decision-Option:'
-	'ID:'	name=ID;
-//Type-Name:' text=STRING;
-
+	'ID:'	name=ID
+	'Name:' text=STRING;
 //OptionSelection:
 //	'Optional' 'REF:' | 'Mandatory' 'REF:' Decision_Option->ID
 //;
@@ -91,8 +91,8 @@ Option_Relationship:
 //	targetRole?=STRING;
 
 GenericRelationship:
-	'Generic Relationship
-	' name?=STRING
+	'Generic Relationship'
+	name?=STRING
 	targetElement=(DRObject)
 	sourceElement=(DRObject)
 	sourceCardinality=INT
