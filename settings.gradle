@@ -1,4 +1,4 @@
 include 'org.xtext.example.mydsl'
 include 'org.xtext.example.mydsl.ide'
 include 'org.xtext.example.mydsl.websockets'
-rootProject.name = 'Meta_Model'
+rootProject.name = 'meta_model_language'
