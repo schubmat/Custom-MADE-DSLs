@@ -7,7 +7,6 @@ import org.eclipse.xtext.ide.editor.contentassist.IIdeContentProposalAcceptor
 import org.eclipse.xtext.ide.editor.contentassist.IdeContentProposalProvider
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.xtext.example.mydsl.services.MyDslGrammarAccess
-import org.xtext.example.mydsl.myDsl.MyDslPackage
 
 class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 
