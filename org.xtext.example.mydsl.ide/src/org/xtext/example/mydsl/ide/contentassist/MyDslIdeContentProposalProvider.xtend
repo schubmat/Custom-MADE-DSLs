@@ -19,7 +19,7 @@ class MyDslIdeContentProposalProvider extends IdeContentProposalProvider {
 		IIdeContentProposalAcceptor acceptor) {
 
 		// Considered Alternatives
-		if (m1_ModelAccess == ruleCall.rule && context.currentModel !== null) {
+		if (modelRootAccess == ruleCall.rule && context.currentModel !== null) {
 
 			acceptor.accept(proposalCreator.createSnippet('''Language Name: LANGUAGE_ID
 			
