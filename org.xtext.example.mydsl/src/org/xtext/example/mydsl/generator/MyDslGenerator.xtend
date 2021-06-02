@@ -8,6 +8,22 @@ import org.xtext.example.mydsl.myDsl.M1_Model
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.mydsl.myDsl.DRObject
+import org.eclipse.emf.common.util.EList
+import org.xtext.example.mydsl.myDsl.Statement
+import org.xtext.example.mydsl.myDsl.Relationship
+import org.xtext.example.mydsl.myDsl.Decision_Problem
+import org.xtext.example.mydsl.myDsl.Decision_Result
+import org.xtext.example.mydsl.myDsl.Decision_Option
+import org.xtext.example.mydsl.myDsl.Argumentative_Relationship
+import org.xtext.example.mydsl.myDsl.DRObjectType
+import org.xtext.example.mydsl.myDsl.Derivative_Relationship
+import org.xtext.example.mydsl.myDsl.Consequence_Relationship
+import org.eclipse.emf.ecore.EObject
+import org.xtext.example.mydsl.myDsl.Option_Relationship
+import org.xtext.example.mydsl.myDsl.GenericRelationship
+import org.apache.log4j.LogManager
+
 //import org.xtext.example.mydsl.myDsl.DecisionRecord
 
 /**
@@ -19,7 +35,12 @@ class MyDslGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 //		
-//		val model = resource.contents.head as Model;
+		val model = resource.contents.head as M1_Model;
+		
+		val logger = LogManager.getLogger("Generator")		
+		val bindingsSetup = generateBindingsSetup(model)
+		logger.info("Result: \n" + bindingsSetup)
+		
 //		val decisionRecord = model.records.head as DecisionRecord;
 //		val fileName = resource.URI.trimFileExtension.lastSegment
 //
@@ -379,5 +400,259 @@ class MyDslGenerator extends AbstractGenerator {
 //
 //		''')
 
+	}
+
+		
+	/**
+	 * Generates the file BindingsSetup to visualize a language. This 
+	 * corresponds to the repository 
+	 * https://git.informatik.tu-cottbus.de/richtro3/xtext-languageserver
+	 * (Branch: visual_ls_integration)
+	 * 
+	 * Issue: 
+	 * 		Which class in a grammar corresponds to which meta model type?
+	 * 		When the language infrastructure is generated, this information is
+	 *		currently not populated to the M1 model.
+	 * Solution:
+	 * 		Generate a file, which includes a configuration for the visualization
+	 * 		to bind each class to a Meta-Model-Type of the M2 Model.
+	 * 
+	 * The configuration file is defined as follows:
+	 * 
+	 * It consists of a basic structure (imports, class syntax, ...) and 
+	 * the bindings which have to be generated from the diagram.
+	 * 
+	 * A binding has the style:
+	 * 		new Binding(TitleImpl.simpleName, EMetaModelTypes.STATEMENT)
+	 * which states, that a Title diagram element is represented as a Statement.
+	 * 
+	 * This algorithm follows these steps:
+	 * 1. Setup the class without any dynamic properties. This includes a placeholder
+	 * for future 
+	 * 2. Generate the bindings from the model. Put them into a String.
+	 * 3. Replace the placeholder with the bindings.
+	 * 
+	 * 
+	 */
+	def String generateBindingsSetup(M1_Model models) {
+		
+		/*
+		 * (1) File Extension
+		 * (2) File Name
+		 * (3) Package of file.
+		 */		 
+		val FILE_EXTENSION = ".xtend"
+		val FILE_NAME = "BindingsSetup"
+		val FILE_PACKAGE = "org.xtext.example.mydsl.ide.diagram.flexdr"
+		val BINDINGS_PLACEHOLDER = "BINDINGS_PLACEHOLDER"		
+		
+		var basicClassStructure = 
+			FILE_PACKAGE + " 
+
+			import org.xtext.example.mydsl.ide.diagram.flexdr.EMetaModelTypes.Binding
+			import java.util.ArrayList
+			import org.xtext.example.mydsl.myDsl.impl.*
+			
+			
+			class BindingsSetup {
+				
+				private List<Binding> bindings
+				
+				new() {
+					bindings = new ArrayList<Binding>()
+					bindings.addAll("
+						+ BINDINGS_PLACEHOLDER + "
+					)	
+				}
+				
+				def getBindings() {
+					return this.bindings	
+				}
+				
+			}
+		"
+		
+		// Generate the pure bindings from the model.
+		var String bindings
+		for (model : models.models) {			
+			bindings = generateDRObjectBindings(model.elements) + ", " generateAssociationBindings(model.associationElements)			
+		}	
+		
+		// Replace the placeholder with the generated bindings.
+		basicClassStructure.replace(BINDINGS_PLACEHOLDER, bindings)
+		
+		return bindings
+		
+	}
+	
+	/**
+	 * Generates the Bindings of the Structural Elements.
+	 * A binding has the style:
+	 * 		new Binding(TitleImpl.simpleName, EMetaModelTypes.STATEMENT)
+	 * which states, that a Title diagram element is represented as a Statement.
+	 * 
+	 * The exisiting Meta-Model-Types are reflected in the package
+	 * 		org.xtext.example.mydsl.ide.diagram.flexdr.EMetaModelTypes
+	 * 
+	 */
+	def String generateDRObjectBindings(EList<DRObject> drobjects) {
+		
+		var returnvalue = ""		
+		for (drobject : drobjects) {
+			
+			val type = drobject.type
+			
+			// TODO find a more elegant style of coding this..
+			if (type instanceof Statement) 
+				returnvalue += getBindingAsString(getNameOfDRObject(type), "STATEMENT") + ","
+			if (type instanceof Decision_Problem)
+				returnvalue += getBindingAsString(type.text, "DECISION_PROBLEM") + ","
+			if (type instanceof Decision_Result) 
+				returnvalue += getBindingAsString(type.text, "DECISION_RESULT") + ","
+			if (type instanceof Decision_Option) 
+				returnvalue += getBindingAsString(type.text, "DECISION_OPTION") + ","
+				
+		}
+		return chopLastComma(returnvalue)
+		
+	}
+	
+	/**
+	 * Generates the Bindings of the Connection Elements.
+	 * 
+	 * This follows a slightly different syntax. It always respects the source
+	 * and target type.
+	 * So a binding for a connection binding would look like this:
+	 * 		new Binding(ArrayImpl.simpleName, 
+	 * 					EMetaModelTypes.ARGUMENTATIVE_RELATIONSHIP, 
+	 * 					TargetImpl.simpleName, 
+	 * 					SourceImpl.simpleName)
+	 * 
+	 */
+	def String generateAssociationBindings(EList<Relationship> associations) {
+		
+		var returnvalue = ""
+		for (association : associations) {
+			
+			val type = association.type
+			
+			if (type instanceof Argumentative_Relationship)
+				returnvalue += getBindingAsString("ArgumentativeRelationship", "ARGUMENTATIVE_RELATIONSHIP", 
+					type.source.text, getNameOfDRObject(type.target.type)
+				)
+				
+			if (type instanceof Derivative_Relationship) {
+				var String text = getNameOfDecisionProblemOrResult(type)
+				 
+				returnvalue += getBindingAsString("DerivativeRelationship", "DERIVATIVE_RELATIONSHIP",
+						getNameOfDRObject(type.source.type), text
+					) 	
+			}
+			
+			if (type instanceof Consequence_Relationship) {
+				var String text = getNameOfDecisionProblemOrResult(type)
+				
+				returnvalue += getBindingAsString("ConsequenceRelationship", "CONSEQUENCE_RELATIONSHIP",
+					type.source.text, text
+				)
+			}
+			
+			if (type instanceof Option_Relationship) {
+				returnvalue += getBindingAsString("OptionRelationship", "OPTION_RELATIONSHIP", 
+					type.source.text, type.target.text
+				)
+			}
+			
+			if (type instanceof GenericRelationship) {
+				returnvalue += getBindingAsString("GenericRelationship", "GENERIC_RELATIONSHIP",
+					getNameOfDRObject(type.sourceElement.type), getNameOfDRObject(type.targetElement.type)
+				)
+			}
+			
+		}
+		return returnvalue;
+		
+	}
+	
+	/**
+	 * The children is either a Decision Problem or a Decision Result. Often the grammar
+	 * specifies something like
+	 * 		attribute = (Decision_Problem | Decision_Result)
+	 * Both, Decision_Problem and Decision_Result contain a text attribute.
+	 * To find the content of the text attribute, this methods should be used. 
+	 * 
+	 * The text attribute of the object is to be returned.
+	 */
+	def String getNameOfDecisionProblemOrResult(EObject obj) {
+		var String text = ""
+		if (obj instanceof Decision_Problem) {
+			return obj.text
+		}
+		if (obj instanceof Decision_Result) {
+			return obj.text
+		}
+		return text
+		
+	}
+	
+	/**
+	 * Returns the name of a DRObject.
+	 * 
+	 * TODO Perform this operation in a more elegant fashion.
+	 */
+	def String getNameOfDRObject(DRObjectType obj) {
+		if (obj instanceof Statement) 
+			obj.text
+		if (obj instanceof Decision_Problem)
+			obj.text
+		if (obj instanceof Decision_Result)
+			obj.text
+		if (obj instanceof Decision_Option)
+			obj.text
+		""
+	}
+	
+	/**
+	 * Generates the pattern 
+	 * 		new Binding(TitleImpl.simpleName, EMetaModelTypes.STATEMENT)
+	 * For the given Pattern, the method call would be:
+	 * 		getBinding("Title", "STATEMENT")
+	 * 
+	 * @elementName
+	 * 				The name of the custom element in the own grammar.
+	 * @bindingName 
+	 * 				The name of the Meta-Model-Type to bind the custom element to.
+	 */
+	// For a structural element.
+	def String getBindingAsString(String elementName, String bindingName) {
+		"new Binding(" + elementName + "Impl.simpleName, EMetaModelTypes." + bindingName + ")"
+	}
+	/**
+	 * @elementName
+	 * 				The name of the custom element in the own grammar.
+	 * @bindingName 
+	 * 				The name of the Meta-Model-Type to bind the custom element to.
+	 * @sourceName
+	 * 				The name of the custom source element of an association.
+	 * @targetName
+	 * 				The name of the custom target element of an association.
+	 */
+	// For a connection element (for an example, see method of 'generateAssociationBindings()')
+	def String getBindingAsString(String elementName, String bindingName, String sourceName, String targetName) {
+		"new Binding(" + elementName + "Impl.simpleName, EMetaModelTypes." + bindingName + ", " + 
+			sourceName + "Impl.simpleName, " + targetName + "Impl.simpleName)"
+	}
+	
+	/**
+	 * If 		last character is a ',' -> chop it off.
+	 * Else 	do nothing
+	 * 
+	 * ',' is in Ascii number 44.
+	 */
+	def String chopLastComma(String str) {
+		if (str.charAt(str.length - 1) == 44) {
+			return str.substring(0, str.length() - 1)
+		}
+		return str
 	}
 }

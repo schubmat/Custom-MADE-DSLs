@@ -15,15 +15,16 @@ ModelRoot:
 	associationElements+=(Relationship)+;
 
 DRObject:
-	'DR Object -- Type:' DRObject_Type;
+	'DR Object -- Type:' type=DRObjectType;
 //	'Name:' text=STRING
 //	'ID:'	name=ID;
 	
-DRObject_Type:
-	Statement | 
-	Decision_Problem |
-	Decision_Result |
-	Decision_Option;
+DRObjectType:
+	type = (
+		Statement | 
+		Decision_Problem |
+		Decision_Result |
+		Decision_Option);
 
 Statement:
 	'Statement:'
@@ -49,11 +50,12 @@ Decision_Option:
 //;
 
 Relationship:
-	GenericRelationship | 
-	Argumentative_Relationship |
-	Derivative_Relationship | 
-	Consequence_Relationship |
-	Option_Relationship;
+	type=(
+		GenericRelationship | 
+		Argumentative_Relationship |
+		Derivative_Relationship | 
+		Consequence_Relationship |
+		Option_Relationship);
 	
 Argumentative_Relationship:
 	"Argumentative Relationship:"
