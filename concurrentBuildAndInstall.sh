@@ -12,8 +12,14 @@ buildLangServerBinaryFromSubfolder() {
 	languageName=$2
 	version=$3
 
+	currTime=`date "+%H:%M:%S"`;
+	echo "## $currTime -- building $languageName in version $version --> locking /tmp/$languageName-_-$version.lockfile " >> ../.logfile
+	#
+	(
+	flock -e 200
+
 	# check if LSP has been built in the mean time
-	if [ ! -d "$BUILD_DIR/$languageName-$version" ]; then
+	if [ ! -d "$BUILD_DIR/$languageName-_-$version" ]; then
 
 		if [ ! -d "$BUILD_DIR" ]; then
 		# syncronize folder creation, but only do if it's really neccessary
@@ -27,28 +33,29 @@ buildLangServerBinaryFromSubfolder() {
 		fi 
 
 		# build it
-		./gradlew distZip
+		./gradlew assembleDist
 
 		# syncronize copying the binary
 		(
-			flock -e 200
+		flock -e 200
 			
 			# cp build to LSP_BUILDS folder
-			cp `find . -name "*ide*zip"` $BUILD_DIR
-
+			cp `find . -name "*ide*tar"` $BUILD_DIR
 			# 
 			cd $BUILD_DIR
 			# extract it
-			unzip -o *.zip -d $languageName-$version
-
+			tar xvvf *tar
+			mv org.xtext.example.mydsl.ide-$version $languageName-_-$version
 			# clean up
-			rm *.zip
-			# leave
-			cd -
-			#
+			rm *.tar
 
 		) 200>/tmp/CopyToBuildDir.lock 		
 	fi
+
+	) 200>/tmp/$languageName-_-$version.lockfile 
+	#
+	currTime=`date "+%H:%M:%S"`;
+	echo "## $currTime -- finished building $languageName in version $version -- releasing /tmp/$languageName-_-$version.lockfile " >> ../.logfile
 }
 
 ########################################################################
@@ -59,7 +66,7 @@ buildLangServerBinaryFromSubfolder() {
 flock -e 200
 
 	# checkout LSP configuration to be started --- not used currently
-	git checkout $languageName#$version
+	git checkout $languageName-_-$version
 	# copy plain project without git meta data and branches
 	git checkout-index -a -f --prefix=tmpBuildFolder-$languageName-$version/
 
@@ -71,21 +78,14 @@ cd tmpBuildFolder-$languageName-$version/
 # build language server binary
 buildLangServerBinaryFromSubfolder $BUILD_DIR $languageName $version
 
+# configure Standalone Xtext Generator Setup
+echo "version = ${version}-${languageName}" > gradle.properties
+
 # install language
 ./gradlew install
 
 # exit and 
 cd ..
 # clean up
-#pwd
-echo " ## BEFORE"
-ls tmpBuildFolder*
-echo " ## "
 rm -rf tmpBuildFolder-$languageName-$version/
-echo " ## AFTER"
-ls tmpBuildFolder*
-echo " ##"
 # 
-#sleep 5s
-
-# rsync -aP --exclude=$BUILD_DIR * ../___$languageName-$version
