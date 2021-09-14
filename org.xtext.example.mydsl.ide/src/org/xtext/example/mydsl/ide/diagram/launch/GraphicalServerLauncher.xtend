@@ -10,7 +10,8 @@ class GraphicalServerLauncher extends DiagramServerLauncher {
 	
 	def static void main(String[] args) {
 		log = new DebugLogger()
-		log.log("Graphical Language Server started with: " + Arrays.toString(args))
+		System.err.println("Graphical Language Server started with: " + Arrays.toString(args))
+		// log.log("Graphical Language Server started with: " + Arrays.toString(args))
 		new GraphicalServerLauncher().run(args)
 	}
 	
