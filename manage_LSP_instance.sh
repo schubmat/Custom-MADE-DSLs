@@ -150,7 +150,7 @@ BUILD_DIR="LSP_BUILDS"
 if [[ $command == "init" ]]; then
 
 	git branch > branches.current
-	availableBranches=`cat branches.current | grep -v develop | grep -v master | grep -v templateLang`
+	availableBranches=`cat branches.current | grep -v develop | grep -v main | grep -v templateLang | grep -v verification_and_validation`
 	# remove asteriks of current branch
 	availableBranches=${availableBranches//"*"/" "}  
 

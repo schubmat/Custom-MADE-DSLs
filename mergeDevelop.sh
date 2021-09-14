@@ -8,6 +8,7 @@ for currBranch in $availableBranches; do
 	git pull
 	git merge develop
 	git push
+	sleep 30s
 done
 
 git checkout develop
