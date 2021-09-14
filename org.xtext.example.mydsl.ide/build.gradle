@@ -29,6 +29,7 @@ startScripts {
 
 // Add another start script for the standalone / self-contained case
 task standaloneStartScript(type: CreateStartScripts) {
+
 	mainClassName = 'org.xtext.example.mydsl.ide.diagram.launch.GraphicalServerLauncher'
 	applicationName = 'mydsl-socket'
 	outputDir = new File(project.buildDir, 'scripts')
