@@ -145,7 +145,7 @@ BUILD_DIR="LSP_BUILDS"
 #------------------------------- INIT ---------------------------------
 #----------------------------------------------------------------------
     
-# for all available languages (equiv. to all branches but master and dev) build the 
+# for all available languages (equiv. to all branches but main and dev) build the 
 # LSP wrapper binaries and install the language build into the local repository
 if [[ $command == "init" ]]; then
 

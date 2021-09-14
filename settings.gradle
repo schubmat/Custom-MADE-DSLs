@@ -1,4 +1,4 @@
 include 'org.xtext.example.mydsl'
 include 'org.xtext.example.mydsl.ide'
-rootProject.name = 'grammar_MDR_simplified'
+rootProject.name = 'PROJECT_NAME'
 

@@ -1,5 +1,5 @@
 git branch > tmp.txt
-availableBranches=`cat tmp.txt | grep -v develop | grep -v master `
+availableBranches=`cat tmp.txt | grep -v develop | grep -v main `
 # remove asteriks of current branch
 availableBranches=${availableBranches//"*"/" "}  
 
