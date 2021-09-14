@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
 import java.util.function.Function
+import java.util.Arrays
 import org.eclipse.lsp4j.jsonrpc.Launcher
 import org.eclipse.lsp4j.jsonrpc.MessageConsumer
 import org.eclipse.lsp4j.launch.LSPLauncher.Builder
@@ -66,6 +67,7 @@ import java.io.File
 		var Future<?> future = launcher.startListening()
 //		LOG.info('''Language Server is about to be started on: ''' + host + ''':''' + port)
 		System.err.println('''Language Server is about to be started on: ''' + host + ''':''' + port)
+		Arrays.toString(args)
 		server.run();
 		while (!future.isDone()) {
 			if (future.isDone()) {
