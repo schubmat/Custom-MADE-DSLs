@@ -21,16 +21,14 @@ dependencies {
 }
 
 // Add a start script for the socket case
-// mainClassName = 'org.xtext.example.mydsl.ide.RunServer'
-// mainClassName = 'org.xtext.example.mydsl.websockets.RunWebSocketServer'
 mainClassName = 'org.xtext.example.mydsl.ide.diagram.launch.GraphicalServerLauncher'
+
 startScripts {
 	applicationName = 'mydsl-socket'
 }
 
 // Add another start script for the standalone / self-contained case
 task standaloneStartScript(type: CreateStartScripts) {
-//	mainClassName = 'org.eclipse.xtext.ide.websockets.RunWebSocketServer'
 	mainClassName = 'org.xtext.example.mydsl.ide.diagram.launch.GraphicalServerLauncher'
 	applicationName = 'mydsl-socket'
 	outputDir = new File(project.buildDir, 'scripts')
