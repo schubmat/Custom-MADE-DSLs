@@ -1,7 +1,7 @@
 # Custom-MADE DSLs 
  
 This repository contains Xtext DSL projects that will be used by Custom-MADE Xtext-WebUI (see https://github.com/schubmat/Custom-MADE/). The languages come along with:
-
+ 
 * a DSL project
 * an `...ide` project containing the language server for the specified DSL (cf. [Language Server Protocol](https://github.com/Microsoft/language-server-protocol))
 * a test project
