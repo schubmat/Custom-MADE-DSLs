@@ -10,7 +10,7 @@ This repository contains Xtext DSL projects that will be used by Custom-MADE Xte
 
 ## Quickstart
 
-- Run `./gradlew run`
+- Run `./gradlew run` 
 
 This will start the server with the help of `org.xtext.example.mydsl.websockets.RunWebSocketServer3`.
 
